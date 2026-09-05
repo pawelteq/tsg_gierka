@@ -92,6 +92,15 @@ public class PlayerMovement : MonoBehaviour
         groundColliders.Clear();
     }
 
+    public void ResetMotion(Vector3 position)
+    {
+        groundColliders.Clear();
+        horizontalInput = 0f;
+        body.position = position;
+        body.linearVelocity = Vector2.zero;
+        transform.position = position;
+    }
+
     private void TrackGroundContact(Collision2D collision)
     {
         foreach (ContactPoint2D contact in collision.contacts)
